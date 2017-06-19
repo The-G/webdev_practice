@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+// 	function disappear(elem) {
+// 		elem.style.display = 'none';
+// 	}
+	function init() {
+// 		alert('test');
+		var elementTd = document.getElementsByTagName('td');
+		for(let i=0; i < elementTd.length; i++) {
+			let elem = elementTd.item(i); 
+			elem.onclick = function(){
+				this.style.display = 'none';
+			} // 이런 방식을 콜백 function 이라고 한다.
+		}
+	}
+	window.onload=function() {
+		init(); // 다 읽자마자 작동하는 것!	
+	}
+	
+</script>
+
+</head>
+<body>
+<table>
+	<tr>
+		<td>1. 클릭하면 사라집니다</td>	
+	</tr>
+	<tr>
+		<td>2. 클릭하면 사라집니다</td>	
+	</tr>
+	<tr>
+		<td>3. 클릭하면 사라집니다</td>	
+	</tr>
+</table>	
+</body>
+</html>

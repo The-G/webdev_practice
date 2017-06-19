@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function change() {
+		var old_text = document.getElementById('change').innerText;
+
+		if (old_text === 'hello') {
+			document.getElementById('change').innerText = 'x'
+			document.getElementById('change_btn').innerText = 'on'
+		} else {
+			document.getElementById('change').innerText = 'hello'
+			document.getElementById('change_btn').innerText = 'off'
+		}
+	}
+</script>
+
+</head>
+<body>
+	<div>
+		<h1 id='change' >hello</h1>
+		<button type="button" id="change_btn" onclick="change()">off</button>
+	</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<script type="text/javascript">
+	function shift_right() {
+		var str = document.getElementById('ta1').value.trim();
+//			console.log(str);
+		if(str.trim() !== ''){
+			document.getElementById('ta2').value = str;
+			document.getElementById('ta1').value = '';				
+		}			
+	}
+	function shift_left() {
+		var str = document.getElementById('ta2').value.trim();
+//			console.log(str);
+		if(str.trim() !== ''){
+			document.getElementById('ta1').value = str;
+			document.getElementById('ta2').value = '';				
+		}			
+	}
+	</script>
+
+</head>
+<body>
+	<table>
+		<tbody style="border: thick;">
+			<tr>
+				<td><div><textarea id="ta1" rows="10" cols="20">Gooooooood!!!</textarea></div></td>
+				<td><div><button onclick="shift_right()">▶</button></div>
+					<div><button onclick="shift_left()">◀</button></div>
+					</td>
+				<td><div><textarea id="ta2" rows="10" cols="20"></textarea></div></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

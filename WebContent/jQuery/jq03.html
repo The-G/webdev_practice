@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#btnRight').click(function() {
+			if ($('#ta1').val().trim() !== '') {
+				$('#ta2').val($('#ta1').val().trim());
+				$('#ta1').val('');
+			}
+		})
+		$('#btnLeft').click(function() {
+			if ($('#ta2').val().trim() !== '') {
+				$('#ta1').val($('#ta2').val().trim());
+				$('#ta2').val('');
+			}
+		})
+	})
+</script>
+
+
+</head>
+<body>
+
+	<table>
+		<tbody style="border: thick;">
+			<tr>
+				<td><div>
+						<textarea id="ta1" rows="10" cols="20">Gooooooood!!!</textarea>
+					</div></td>
+				<td><div>
+						<button type="button" id="btnRight">▶</button>
+					</div>
+					<div>
+						<button type="button" id="btnLeft">◀</button>
+					</div></td>
+				<td><div>
+						<textarea id="ta2" rows="10" cols="20"></textarea>
+					</div></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+</body>
+</html>

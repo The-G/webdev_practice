@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+
+<script type="text/javascript">
+// $(function(){}) 이렇게 많이 쓴다.
+$(document).ready(function(){ //함수를 바로 넘겨주는 거다!!! document.ready 되었을 때!!
+// 	$('td'). // 현재 페이지의 모든 td에 접근한다는 소리다
+	$('td').click(function(){
+		$(this).hide();
+	})
+
+});
+
+</script>
+
+
+</head>
+<body>
+<table>
+	<tr>
+		<td>1. 클릭하면 사라집니다</td>	
+	</tr>
+	<tr>
+		<td>2. 클릭하면 사라집니다</td>	
+	</tr>
+	<tr>
+		<td>3. 클릭하면 사라집니다</td>	
+	</tr>
+</table>	
+</body>
+</html>

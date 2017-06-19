@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<script type="text/javascript">
+	function shift_right() {
+		var str = document.myform.ta1.value;
+		if (str.trim() !== '') {
+			/* name으로 접근해서 값을 가져올 수 있다.
+			하지만, 자주 쓰는 형태가 아니다. */
+			document.myform.ta2.value = str;
+			document.myform.ta1.value = '';
+		    e.preventDefault();
+		}
+	}
+	function shift_left() {
+		var str = document.myform.ta2.value;
+		if (str.trim() !== '') {
+			document.myform.ta1.value = str;
+			document.myform.ta2.value = '';
+		    e.preventDefault();
+		}
+	}
+	</script>
+
+</head>
+<body>
+<form name="myform">
+	<table>
+		<tbody style="border: thick;">
+			<tr>
+				<td><div><textarea name="ta1" rows="10" cols="20">Gooooooood!!!</textarea></div></td>
+				<td><div><button !type="button" onclick="shift_right()">▶</button></div>
+					<div><button type="button" onclick="shift_left()">◀</button></div>
+					</td>
+				<td><div><textarea name="ta2" rows="10" cols="20"></textarea></div></td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript"> /* 현재 시점에서는 생략을 해도 된다. 미래에는 어떻게 될 지 모른다. */
+	function first_func() {
+		var str = document.getElementById('web2').innerText;   //document:현재문서
+// 		alert(str + ' test');
+		console.log(str + ' test');
+	}
+</script>
+
+</head>
+<body>
+	<div onclick="alert('hello')">hello web 1</div>
+	<div id="web2" onclick="first_func()">hello web 2 (alert)</div>
+	<div>hello web 3</div>
+	<hr/>
+	<span>bye~</span>
+	<span>bye~</span>
+	<span>bye~</span>
+</body>
+</html>
