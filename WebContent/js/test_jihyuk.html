@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
+	<p id="demo">테스트 문장</p>
+	<button onclick="myFunction()">Click Me!</button>
+	<!-- 1번. 텍스트를 클릭하면 폰트와 컬러를 변경합니다. -->
+	<script>
+		function myFunction() {
+			var test_text = document.getElementById("demo");
+			test_text.style.fontSize = "75px";
+			test_text.style.color = "#3af"
+		}
+	</script>
+	<!-- 2번. 텍스트를 클릭하면 사라집니다. -->
+	<script>
+		$("p#demo").click(function() {
+			$(this).hide();
+		});
+	</script>
+	<!-------->
+</body>
+</html>
