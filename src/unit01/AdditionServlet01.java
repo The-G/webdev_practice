@@ -35,6 +35,8 @@ public class AdditionServlet01 extends HttpServlet { // AdditionServlet도
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8"); // 우리가 utf-8로 짰다는 것을 나타내는 거다!!
 		PrintWriter out = response.getWriter();
 		out.println("doPost 수행중");
 		String name = request.getParameter("name");
