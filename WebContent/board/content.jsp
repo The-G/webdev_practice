@@ -1,3 +1,4 @@
+<%@page import="board.model.BoardDAO"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="board.model.BoardVO"%>
 <%@page import="java.sql.ResultSet"%>
@@ -8,42 +9,9 @@
 <%
 	long no = Long.parseLong(request.getParameter("no"));
 	
-	Connection cn = null;
-	PreparedStatement ps = null;
-	ResultSet rs = null;
-
-	StringBuffer sql = new StringBuffer();
-	sql.append(" select no, name, title, content, regdate, viewcount");
-	sql.append(" from TB_BOARD");
-	sql.append(" where no = ?");
+	BoardDAO boardDAO = BoardDAO.getInstance();
+	BoardVO boardVO = boardDAO.getBoard(no); // set 하는 작업을 getBoard에서 해줌!!
 	
-	BoardVO boardVO = null;
-
-	try {
-		Class.forName("oracle.jdbc.OracleDriver");
-		cn = DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521:xe","bigdata","bigdata");
-		ps = cn.prepareStatement(sql.toString());
-		ps.setLong(1, no);
-		rs = ps.executeQuery();
-		if (rs.next()) {
-			boardVO = new BoardVO();
-			boardVO.setNo(rs.getLong("no"));
-			boardVO.setName(rs.getString("name"));
-			boardVO.setTitle(rs.getString("title"));
-			boardVO.setContent(rs.getString("content"));
-			boardVO.setViewcount(rs.getInt("viewcount"));
-			boardVO.setRegdate(rs.getDate("regdate"));
-		}
-		
-		
-	} catch (Exception e) {
-		e.printStackTrace();
-	} finally {
-		if (rs != null) try{rs.close();} catch(Exception e){}
-		if (ps != null) try{rs.close();} catch(Exception e){}
-		if (cn != null) try{rs.close();} catch(Exception e){}
-	}
 	
 %>
    

@@ -1,6 +1,4 @@
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.PreparedStatement"%>
+<%@page import="board.model.BoardDAO"%>
 <%@page import="board.model.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -18,37 +16,9 @@
 	boardVO.setTitle(title);
 	boardVO.setPwd(pwd);
 	
+	BoardDAO boardDAO = BoardDAO.getInstance();
+ 	boolean result = boardDAO.updateBoard(boardVO);
 	
-	Connection cn = null;
-	PreparedStatement ps = null;
-	
-	boolean result = false;
-	
-	StringBuffer sql = new StringBuffer();
-	sql.append(" UPDATE tb_board SET");
-	sql.append(" 		title = ?, name=?, content=?");
-	sql.append(" WHERE  no=? AND pwd=?");
-	
-	try {
-		Class.forName("oracle.jdbc.OracleDriver");
-		cn = DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521:xe","bigdata","bigdata");
-		ps = cn.prepareStatement(sql.toString());
-		ps.setString(1, boardVO.getTitle());
-		ps.setString(2, boardVO.getName());
-		ps.setString(3, boardVO.getContent());
-		ps.setLong(4, boardVO.getNo());
-		ps.setString(5, boardVO.getPwd());
-		
-		if (ps.executeUpdate() > 0) {
-			result = true;
-		} // 잘 수행 되었으면, 비밀번호도 맞으면 true(1) 이 반환되니까!!
-	} catch(Exception e) {
-		e.printStackTrace();
-	} finally {
-		if (ps != null) try{ps.close();} catch(Exception e){}
-		if (cn != null) try{cn.close();} catch(Exception e){}
-	}
 %>
 
 <!DOCTYPE html>
