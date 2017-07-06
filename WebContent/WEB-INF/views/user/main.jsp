@@ -8,10 +8,7 @@
 <link rel="shortcut icon" href="/favicon.ico" />
 </head>
 <body>
-<script type="text/javascript">
-	alert('${msg}');
-	location.href='${url}';  //EL, request 객체 바로 뽑아오기!!
-	/* 이동 */
-</script>
+${msg} <!-- EL -->
+<a href="Logout" >로그아웃</a>
 </body>
 </html>
